@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import { CultureSpotlight } from '@/components/CultureSpotlight'
 import { stashArticles } from '@/lib/stash'
 import { site } from '@/lib/site'
 export const metadata: Metadata = { title:'JJ Stash', description:'The editorial publication of CannaCore Seeds: genetics, plant science, cultivation, history, and culture.' }
 export default function StashPage(){return <main>
   <section className="page-hero stash-page-hero"><p className="eyebrow">JJ Stash · A CannaCore publication</p><h1>The secret stash,<br/><em>made public.</em></h1><p>JJ Stash is a free publication with deep dives into genetics, plant biology, cultivar history, selection, and cannabis culture. The publication lives on Beehiiv; this is its front door inside CannaCore.</p><div className="hero-actions"><a className="button button-primary" href={site.stashArchive} target="_blank" rel="noreferrer">Read JJ Stash ↗</a><a className="button button-outline" href={site.stashUrl} target="_blank" rel="noreferrer">Sign up for free ↗</a></div></section>
   <section className="section-wrap editorial-ledger"><div className="section-heading split"><div><p className="eyebrow">Selected from the archive</p><h2>Science, selection,<br/>history, culture.</h2></div><p>The archive remains on Beehiiv so every article has one canonical home. CannaCore surfaces the pieces that best explain the thinking behind the genetics.</p></div>{stashArticles.map(article=><a className="ledger-row" href={article.url} target="_blank" rel="noreferrer" key={article.title}><span>{article.index}</span><div><small>{article.tag}</small><h3>{article.title}</h3><p>{article.subtitle}</p></div><b>Open article ↗</b></a>)}</section>
+  <CultureSpotlight/>
   <section className="author-panel section-wrap"><div className="author-visual"><div className="microscope-orbit"><span>JJ</span><i/><i/><i/></div></div><div><p className="eyebrow">About the publication</p><h2>Written from inside the grow.</h2><p>JJ Stash describes itself as a repository for cannabis genetics, breeding history, cultivation insight, and plant culture. That makes it a natural editorial layer for CannaCore rather than a competing brand.</p><a className="text-link" href={site.stashAuthors} target="_blank" rel="noreferrer">Read the Beehiiv author page <span>↗</span></a></div></section>
 </main>}

@@ -1,3 +1,4 @@
+import './home-refresh.css'
 import Link from 'next/link'
 import { StrainRail } from '@/components/StrainRail'
 import { StashPreview } from '@/components/StashPreview'

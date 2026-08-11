@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { site } from '@/lib/site'
 import './globals.css'
+import './strain-art-fit.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),

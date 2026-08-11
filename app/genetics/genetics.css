@@ -1,0 +1,29 @@
+.catalog-grid .strain-card-image{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 5;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:18px;
+  background:linear-gradient(145deg,#0a140e,#0e1b13);
+}
+
+.catalog-grid .strain-card-image img{
+  position:static !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+
+@media (max-width:700px){
+  .catalog-grid .strain-card-image{
+    aspect-ratio:4 / 5;
+    padding:12px;
+  }
+}

@@ -1,0 +1,60 @@
+/* Strain artwork is designed as complete branded art, not photography.
+   Keep the full composition visible instead of cropping labels/borders. */
+.strain-display,
+.strain-card-image,
+.detail-image {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(119,226,143,.075), transparent 48%),
+    #08110c;
+}
+
+.strain-display img,
+.strain-card-image img,
+.detail-image img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: clamp(8px, 1.25vw, 20px);
+}
+
+.strain-card-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.strain-card-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.detail-image img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Homepage interactive feature keeps its tall editorial frame while
+   fitting the complete artwork inside that frame. */
+.strain-display img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Smaller order thumbnails should also preserve the complete branded art. */
+.order-line img {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #08110c;
+  padding: 3px;
+}
+
+@media (max-width: 700px) {
+  .strain-display img,
+  .strain-card-image img,
+  .detail-image img {
+    padding: 8px;
+  }
+}

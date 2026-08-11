@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CultureSpotlight } from '@/components/CultureSpotlight'
+import { stashArticles } from '@/lib/stash'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -77,15 +79,31 @@ function PotOfNugsGraphic(){
 
 export default function AboutPage(){
   return <main>
-    <section className="about-story-hero">
+    <section className="about-story-hero about-story-hero-visual" aria-label="CannaCore outdoor cultivation story image">
       <img className="about-story-photo" src={ABOUT_IMAGES.hero} alt="Breeder inspecting a cannabis plant outdoors"/>
       <div className="about-story-shade"/>
-      <div className="about-story-copy">
-        <p className="eyebrow">Our story</p>
-        <h1>One breeder.<br/><em>Two expressions.</em></h1>
-        <p>CannaCore Seeds is where the genetics live. JJ’s Stash is where the story grows — the science, history, cultivation notes, and culture around the work.</p>
-        <Link href="/genetics" className="button button-primary">Explore genetics</Link>
+    </section>
+
+    <section className="page-hero stash-page-hero about-stash-intro">
+      <p className="eyebrow">JJ’s Stash · A CannaCore publication</p>
+      <h1>The secret stash,<br/><em>made public.</em></h1>
+      <p>JJ’s Stash is a free publication with deep dives into genetics, plant biology, cultivar history, selection, and cannabis culture. The publication lives on Beehiiv; this is its front door inside CannaCore.</p>
+      <div className="hero-actions">
+        <a className="button button-primary" href={site.stashArchive} target="_blank" rel="noreferrer">Read JJ’s Stash ↗</a>
+        <a className="button button-outline" href={site.stashUrl} target="_blank" rel="noreferrer">Sign up for free ↗</a>
       </div>
+    </section>
+
+    <section className="section-wrap editorial-ledger about-archive-ledger">
+      <div className="section-heading split">
+        <div><p className="eyebrow">Selected from the archive</p><h2>Science, selection,<br/>history, culture.</h2></div>
+        <p>The archive remains on Beehiiv so every article has one canonical home. CannaCore surfaces the pieces that best explain the thinking behind the genetics.</p>
+      </div>
+      {stashArticles.map(article=><a className="ledger-row" href={article.url} target="_blank" rel="noreferrer" key={article.title}>
+        <span>{article.index}</span>
+        <div><small>{article.tag}</small><h3>{article.title}</h3><p>{article.subtitle}</p></div>
+        <b>Open article ↗</b>
+      </a>)}
     </section>
 
     <section className="section-wrap principles about-principles">
@@ -116,12 +134,11 @@ export default function AboutPage(){
 
     <style>{`
       .about-story-hero{position:relative;min-height:760px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);background:#07100b}
+      .about-story-hero-visual{min-height:clamp(520px,66vw,760px)}
       .about-story-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:saturate(.78) brightness(.66) contrast(1.08)}
-      .about-story-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,10,6,.96) 0%,rgba(3,10,6,.84) 34%,rgba(3,10,6,.48) 62%,rgba(3,10,6,.18) 100%),linear-gradient(0deg,rgba(4,12,7,.42),rgba(4,12,7,.06))}
-      .about-story-copy{position:relative;z-index:2;width:min(760px,calc(100% - 40px));margin-left:max(24px,calc((100vw - var(--max))/2 + 64px));padding:110px 0;color:white}
-      .about-story-copy h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(64px,8vw,122px);line-height:.9;letter-spacing:-.055em;margin:0}
-      .about-story-copy h1 em{color:var(--green2);font-weight:400}
-      .about-story-copy>p:not(.eyebrow){max-width:610px;font-size:18px;line-height:1.75;color:#d5ded7;margin:30px 0 34px}
+      .about-story-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,10,6,.48) 0%,rgba(3,10,6,.22) 42%,rgba(3,10,6,.14) 70%,rgba(3,10,6,.2) 100%),linear-gradient(0deg,rgba(4,12,7,.38),rgba(4,12,7,.04))}
+      .about-stash-intro{border-bottom:1px solid var(--line)}
+      .about-archive-ledger{padding-top:96px;padding-bottom:112px}
       .about-principles{gap:0}.about-principles article{padding-top:32px}.principle-image{position:relative;aspect-ratio:4/3;margin:0 0 34px;border:1px solid rgba(181,240,140,.16);border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#0a120d,#101b13);box-shadow:0 20px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.025)}
       .principle-image:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(4,12,7,.28),transparent 52%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018)}
       .principle-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.05) brightness(.78);transition:transform .5s ease,filter .5s ease}
@@ -132,8 +149,8 @@ export default function AboutPage(){
       .pot-nugs-orbit{position:absolute;width:230px;height:230px;border:1px dashed rgba(181,240,140,.14);border-radius:50%;left:50%;top:44%;transform:translate(-50%,-50%)}
       .pot-nugs-orbit:before,.pot-nugs-orbit:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(213,184,108,.1)}.pot-nugs-orbit:before{inset:28px}.pot-nugs-orbit:after{inset:-30px}
       .pot-nugs-art{position:relative;z-index:2;width:100%;height:auto;display:block;max-height:320px;margin:auto}.pot-nugs-caption{position:absolute;z-index:3;left:28px;bottom:24px;display:flex;flex-direction:column;gap:4px}.pot-nugs-caption span{font-size:8px;letter-spacing:.2em;color:var(--gold);font-weight:700}.pot-nugs-caption strong{font-family:Georgia,serif;font-size:21px;font-weight:400;color:#edf3ec}
-      @media(max-width:900px){.principle-image{aspect-ratio:16/10;margin-bottom:26px}.about-principles article h2{margin-top:28px}}
-      @media(max-width:800px){.about-story-hero{min-height:720px}.about-story-photo{object-position:62% center}.about-story-shade{background:linear-gradient(90deg,rgba(3,10,6,.96),rgba(3,10,6,.76) 65%,rgba(3,10,6,.45))}.about-story-copy{margin-left:24px;padding:90px 0;width:calc(100% - 48px)}.about-story-copy h1{font-size:64px}.pot-nugs-card{min-height:280px;margin-bottom:34px}.pot-nugs-art{max-height:270px}.pot-nugs-caption{left:20px;bottom:18px}.pot-nugs-caption strong{font-size:18px}}
+      @media(max-width:900px){.principle-image{aspect-ratio:16/10;margin-bottom:26px}.about-principles article h2{margin-top:28px}.about-archive-ledger{padding-top:72px;padding-bottom:88px}}
+      @media(max-width:800px){.about-story-hero{min-height:560px}.about-story-photo{object-position:62% center}.about-story-shade{background:linear-gradient(90deg,rgba(3,10,6,.42),rgba(3,10,6,.18) 65%,rgba(3,10,6,.28))}.pot-nugs-card{min-height:280px;margin-bottom:34px}.pot-nugs-art{max-height:270px}.pot-nugs-caption{left:20px;bottom:18px}.pot-nugs-caption strong{font-size:18px}}
     `}</style>
   </main>
 }

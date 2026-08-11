@@ -1,0 +1,48 @@
+name: Apply JJs Stash branding
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/apply-jjs-stash-branding.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update public naming and About hero
+        shell: python
+        run: |
+          from pathlib import Path
+
+          for root in ('app','components','lib'):
+            base = Path(root)
+            if not base.exists():
+              continue
+            for p in base.rglob('*'):
+              if p.suffix not in {'.ts','.tsx','.js','.jsx','.css'}:
+                continue
+              s = p.read_text()
+              n = s.replace('JJ Stash', 'JJ’s Stash')
+              if n != s:
+                p.write_text(n)
+
+          about = Path('app/about/page.tsx')
+          s = about.read_text()
+          s = s.replace('<section className="page-hero">', '<section className="page-hero about-hero">', 1)
+          about.write_text(s)
+
+          css = Path('app/globals.css')
+          s = css.read_text()
+          marker = '/* About breeder photo hero */'
+          if marker not in s:
+            s += '''\n\n/* About breeder photo hero */\n.about-hero{max-width:none!important;min-height:760px;padding-left:max(clamp(18px,4vw,64px),calc((100vw - var(--max))/2 + 64px));padding-right:max(clamp(18px,4vw,64px),calc((100vw - var(--max))/2 + 64px));background-image:linear-gradient(90deg,rgba(5,12,7,.88) 0%,rgba(5,12,7,.70) 42%,rgba(5,12,7,.34) 72%,rgba(5,12,7,.18) 100%),linear-gradient(0deg,rgba(5,12,7,.42),rgba(5,12,7,.08)),url('/brand/jj-sidewalk.webp');background-size:cover;background-position:center 42%;border-bottom:1px solid var(--line);}\n.about-hero .eyebrow{color:var(--green2)}\n.about-hero h1{max-width:900px;text-shadow:0 3px 30px rgba(0,0,0,.38)}\n.about-hero>p:not(.eyebrow){color:#e0e9e1;max-width:670px;text-shadow:0 2px 18px rgba(0,0,0,.55)}\n@media(max-width:760px){.about-hero{min-height:700px;background-position:58% center;background-image:linear-gradient(90deg,rgba(5,12,7,.90),rgba(5,12,7,.54)),url('/brand/jj-sidewalk.webp')}}\n'''
+            css.write_text(s)
+      - name: Commit changes and remove workflow
+        run: |
+          rm .github/workflows/apply-jjs-stash-branding.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Brand publication as JJ’s Stash and add breeder About hero" || true
+          git push

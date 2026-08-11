@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { site } from '@/lib/site'
 
 export function SiteHeader() {
   const [open,setOpen] = useState(false)
@@ -17,7 +16,6 @@ export function SiteHeader() {
         <Link href="/genetics" onClick={()=>setOpen(false)}>Genetics</Link>
         <Link href="/about" onClick={()=>setOpen(false)}>About</Link>
         <Link href="/contact" onClick={()=>setOpen(false)}>Contact</Link>
-        <a className="nav-stash" href={site.stashUrl} target="_blank" rel="noreferrer">Read the newsletter ↗</a>
       </nav>
     </div>
   </header>

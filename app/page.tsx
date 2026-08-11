@@ -22,7 +22,5 @@ export default function Home(){
         <article className="stash-card"><span>02 / Publication</span><h3>JJ’s Stash</h3><p>The public notebook behind the library: genetics research, plant science, cultivation notes, history, and culture.</p><Link href="/about#jj-stash">Explore the story ↗</Link><a href={site.stashUrl} target="_blank" rel="noreferrer">Read the newsletter ↗</a></article>
       </div>
     </section>
-
-    <section className="founder-band"><div><p className="eyebrow">The through-line</p><h2>The genetics and the notebook come from the same obsession: understanding what is actually inside the plant.</h2></div><div><p>CannaCore builds the library. JJ’s Stash documents the thinking around it. The full publication story, selected archive pieces, and culture references now live together on the About page.</p><Link href="/about" className="text-link">Explore CannaCore’s story <span>↗</span></Link></div></section>
   </main>
 }

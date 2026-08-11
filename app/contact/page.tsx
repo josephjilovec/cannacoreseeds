@@ -21,7 +21,7 @@ export default function ContactPage() {
         <div className="contact-grow-copy">
           <p className="eyebrow">Direct line</p>
           <h1>Talk to<br/><em>the breeder.</em></h1>
-          <p>Questions about genetics, an order, a collaboration, or something you read in JJ Stash.</p>
+          <p>Questions about genetics, an order, a collaboration, or something you read in JJ’s Stash.</p>
         </div>
       </section>
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
             <select name="topic" defaultValue="Genetics question">
               <option>Genetics question</option>
               <option>Order question</option>
-              <option>JJ Stash / editorial</option>
+              <option>JJ’s Stash / editorial</option>
               <option>Collaboration</option>
               <option>Other</option>
             </select>
@@ -56,7 +56,7 @@ export default function ContactPage() {
 
         <aside>
           <p className="eyebrow">Elsewhere</p>
-          <h2>JJ Stash lives on Beehiiv.</h2>
+          <h2>JJ’s Stash lives on Beehiiv.</h2>
           <a href="https://jjstash.beehiiv.com/" target="_blank" rel="noreferrer">Newsletter ↗</a>
           <a href="https://jjstash.beehiiv.com/archive" target="_blank" rel="noreferrer">Archive ↗</a>
           <a href="https://jjstash.beehiiv.com/authors" target="_blank" rel="noreferrer">Author page ↗</a>

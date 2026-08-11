@@ -14,7 +14,7 @@ export function SiteHeader() {
       <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation"><span/><span/></button>
       <nav className={open ? 'nav-links is-open' : 'nav-links'}>
         <Link href="/genetics" onClick={()=>setOpen(false)}>Genetics</Link>
-        <Link href="/stash" onClick={()=>setOpen(false)}>JJ Stash</Link>
+        <Link href="/stash" onClick={()=>setOpen(false)}>JJ’s Stash</Link>
         <Link href="/about" onClick={()=>setOpen(false)}>About</Link>
         <Link href="/contact" onClick={()=>setOpen(false)}>Contact</Link>
         <a className="nav-stash" href={site.stashUrl} target="_blank" rel="noreferrer">Read the newsletter ↗</a>

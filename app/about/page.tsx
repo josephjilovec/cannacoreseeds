@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { CultureSpotlight } from '@/components/CultureSpotlight'
 import { stashArticles } from '@/lib/stash'
 import { site } from '@/lib/site'
@@ -84,7 +83,7 @@ export default function AboutPage(){
       <div className="about-story-shade"/>
     </section>
 
-    <section className="page-hero stash-page-hero about-stash-intro">
+    <section id="jj-stash" className="page-hero stash-page-hero about-stash-intro">
       <p className="eyebrow">JJ’s Stash · A CannaCore publication</p>
       <h1>The secret stash,<br/><em>made public.</em></h1>
       <p>JJ’s Stash is a free publication with deep dives into genetics, plant biology, cultivar history, selection, and cannabis culture. The publication lives on Beehiiv; this is its front door inside CannaCore.</p>
@@ -129,7 +128,7 @@ export default function AboutPage(){
         <p className="eyebrow">CannaCore × JJ’s Stash</p>
         <h2>The genetics and the notebook come from the same obsession: understanding what is actually inside the plant.</h2>
       </div>
-      <div><p>CannaCore is the genetics house. JJ’s Stash is the editorial layer around it. One builds the library; the other documents the thinking, research, and stories that make the library worth following.</p><Link href="/stash" className="text-link">Enter JJ’s Stash <span>↗</span></Link></div>
+      <div><p>CannaCore is the genetics house. JJ’s Stash is the editorial layer around it. One builds the library; the other documents the thinking, research, and stories that make the library worth following.</p><a href={site.stashUrl} target="_blank" rel="noreferrer" className="text-link">Read the newsletter <span>↗</span></a></div>
     </section>
 
     <style>{`
@@ -137,7 +136,7 @@ export default function AboutPage(){
       .about-story-hero-visual{min-height:clamp(520px,66vw,760px)}
       .about-story-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:saturate(.78) brightness(.66) contrast(1.08)}
       .about-story-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,10,6,.48) 0%,rgba(3,10,6,.22) 42%,rgba(3,10,6,.14) 70%,rgba(3,10,6,.2) 100%),linear-gradient(0deg,rgba(4,12,7,.38),rgba(4,12,7,.04))}
-      .about-stash-intro{border-bottom:1px solid var(--line)}
+      .about-stash-intro{border-bottom:1px solid var(--line);scroll-margin-top:90px}
       .about-archive-ledger{padding-top:96px;padding-bottom:112px}
       .about-principles{gap:0}.about-principles article{padding-top:32px}.principle-image{position:relative;aspect-ratio:4/3;margin:0 0 34px;border:1px solid rgba(181,240,140,.16);border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#0a120d,#101b13);box-shadow:0 20px 50px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.025)}
       .principle-image:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(4,12,7,.28),transparent 52%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.018)}

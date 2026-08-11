@@ -4,8 +4,8 @@ import { stashArticles } from '@/lib/stash'
 import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'How CannaCore Seeds and JJ’s Stash fit together.'
+  title: 'Culture',
+  description: 'JJ’s Stash, CannaCore’s point of view on genetics, and the cannabis culture around the collection.'
 }
 
 const ABOUT_IMAGES = {
@@ -23,7 +23,7 @@ export default function AboutPage(){
       <div className="about-stash-copy">
         <p className="eyebrow">JJ’s Stash · A CannaCore publication</p>
         <h1>The secret stash,<br/><em>made public.</em></h1>
-        <p>JJ’s Stash is a free publication with deep dives into genetics, plant biology, cultivar history, selection, and cannabis culture. The publication lives on Beehiiv; this is its front door inside CannaCore.</p>
+        <p>JJ’s Stash is where I write about the things around cannabis that are worth paying attention to — genetics, plant biology, cultivar history, selection, memorable flower, and the culture that built the community long before CannaCore existed.</p>
         <div className="hero-actions">
           <a className="button button-primary" href={site.stashArchive} target="_blank" rel="noreferrer">Read JJ’s Stash ↗</a>
           <a className="button button-outline" href={site.stashUrl} target="_blank" rel="noreferrer">Sign up for free ↗</a>
@@ -34,7 +34,7 @@ export default function AboutPage(){
     <section className="section-wrap editorial-ledger about-archive-ledger">
       <div className="section-heading split">
         <div><p className="eyebrow">Selected from the archive</p><h2>Science, selection,<br/>history, culture.</h2></div>
-        <p>The archive remains on Beehiiv so every article has one canonical home. CannaCore surfaces the pieces that best explain the thinking behind the genetics.</p>
+        <p>The archive is a running notebook rather than a brand manual. Some pieces go deep into plant science, some look backward at cannabis history, and others are simply about the strains, people, and ideas that make the culture interesting.</p>
       </div>
       {stashArticles.map(article=><a className="ledger-row" href={article.url} target="_blank" rel="noreferrer" key={article.title}>
         <span>{article.index}</span>
@@ -46,15 +46,15 @@ export default function AboutPage(){
     <section className="section-wrap principles about-principles">
       <article>
         <div className="principle-image"><img src={ABOUT_IMAGES.selection} alt="Organized selection vials used for careful seed and specimen sorting"/></div>
-        <span>01</span><h2>Purpose driven.</h2><p>Every cross should have a reason behind it. CannaCore focuses on structure, expression, lineage, and a documented selection process rather than novelty for its own sake.</p>
+        <span>01</span><h2>Good taste comes first.</h2><p>CannaCore starts with a simple point of view: I know what I like. Aroma, flavor, structure, character, and the overall quality of the flower matter more to me than chasing whatever happens to be fashionable that month. People have trusted my taste in cannabis for years, and that same standard guides what earns a place in the CannaCore collection.</p>
       </article>
       <article>
         <div className="principle-image"><img src={ABOUT_IMAGES.trichomes} alt="Macro view of a frost-covered cannabis flower and its trichomes"/></div>
-        <span>02</span><h2>Genetics first.</h2><p>The commercial side of the brand stays focused on the library itself: the lines, release context, availability, and direct breeder relationship.</p>
+        <span>02</span><h2>Genetics worth keeping.</h2><p>I’m interested in genetics with an identity — lines that have something memorable about them and a reason to keep paying attention. CannaCore is intentionally selective. The goal isn’t to fill a catalog with hundreds of names. It’s to build a tighter collection around genetics I genuinely find interesting.</p>
       </article>
       <article>
         <div className="principle-image"><img src={ABOUT_IMAGES.notebook} alt="Vintage field notebook and pen viewed from above"/></div>
-        <span>03</span><h2>The story stays attached.</h2><p>JJ’s Stash gives the work a public notebook — a place for deeper genetics context, cultivation insight, plant science, history, and the culture around each release.</p>
+        <span>03</span><h2>The notebook stays open.</h2><p>I came to cannabis through the culture itself, before legal markets made it look like an ordinary retail category. I’ve watched that culture change, and I still think the community, history, growers, breeders, conversations, and shared knowledge matter. JJ’s Stash is where I write about the grows, the strains, the science, and the culture as I see it.</p>
       </article>
     </section>
 

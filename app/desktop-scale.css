@@ -1,0 +1,8 @@
+/* Desktop presentation scale
+   Mirrors the denser, larger feel of viewing the site at 125% browser zoom
+   while leaving tablet and mobile layouts at their native responsive scale. */
+@media (min-width: 1051px) {
+  body {
+    zoom: 1.25;
+  }
+}

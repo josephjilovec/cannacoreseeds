@@ -5,4 +5,9 @@
   body {
     zoom: 1.25;
   }
+
+  /* Keep the homepage hero copy visually higher after desktop scaling. */
+  .campaign-copy {
+    transform: translateY(-36px);
+  }
 }

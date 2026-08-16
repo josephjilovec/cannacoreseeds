@@ -4,7 +4,7 @@ export function SiteFooter(){
   return <footer className="site-footer">
     <div className="footer-grid">
       <div><p className="footer-kicker">CannaCore Seeds × JJ’s Stash</p><h2>Genetics with a paper trail.</h2><p className="footer-copy">CannaCore is the genetics studio. JJ’s Stash is the field notebook: breeding, plant science, history, and culture documented in public.</p></div>
-      <div><p>Explore</p><Link href="/">Home</Link><Link href="/genetics">Genetics</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></div>
+      <div><p>Explore</p><Link href="/">Home</Link><Link href="/genetics">Genetics</Link><Link href="/protocols">Grower Protocols</Link><Link href="/about">Culture</Link><Link href="/contact">Contact</Link></div>
       <div><p>JJ’s Stash</p><Link href="/about#jj-stash">Publication story</Link><a href={site.stashUrl} target="_blank" rel="noreferrer">Newsletter ↗</a><a href={site.stashArchive} target="_blank" rel="noreferrer">Archive ↗</a></div>
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} CannaCore Seeds</span><span>JJ’s Stash is the editorial publication of CannaCore Seeds.</span></div>

@@ -14,7 +14,7 @@ export function SiteHeader() {
       <nav className={open ? 'nav-links is-open' : 'nav-links'}>
         <Link href="/" onClick={()=>setOpen(false)}>Home</Link>
         <Link href="/genetics" onClick={()=>setOpen(false)}>Genetics</Link>
-        <Link href="/protocols" onClick={()=>setOpen(false)}>Grower Protocols</Link>
+        <Link href="/protocols" onClick={()=>setOpen(false)}>Protocols</Link>
         <Link href="/about" onClick={()=>setOpen(false)}>Culture</Link>
         <Link href="/contact" onClick={()=>setOpen(false)}>Contact</Link>
       </nav>

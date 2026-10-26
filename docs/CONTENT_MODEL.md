@@ -1,9 +1,7 @@
-# Content Model
+# CannaCore Seeds — Public Information
 
-## Genetics
-Genetics live in `lib/strains.ts`. Each item has a name, lineage, flowering window, description, image, and accent color.
+The complete working document was preserved in restricted Venture Studio storage. Internal brand planning, operating assumptions, and partnership details are no longer published at this path.
 
-## JJ Stash
-Featured editorial links live in `lib/stash.ts`. Beehiiv remains the source of truth for the full archive.
+For public information visit https://cannacoreseeds.com.
 
-When a new Beehiiv issue should be featured on CannaCore, add its title, subtitle, summary, URL, and tag in `lib/stash.ts`.
+Prior public versions may still be available in Git history.

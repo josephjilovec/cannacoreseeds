@@ -9,6 +9,6 @@ export function SiteFooter(){
     </div>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} CannaCore Seeds</span><span>JJ’s Stash is the editorial publication of CannaCore Seeds.</span></div>
     <div style={{borderTop:'1px solid rgba(255,255,255,.08)',padding:'1rem clamp(18px,4vw,64px)',fontSize:'.72rem',lineHeight:1.6,color:'rgba(230,238,232,.62)',textAlign:'center'}}><strong style={{color:'#E7C45A'}}>21+ · Lawful jurisdictions only.</strong> Seeds and cultivation materials are intended for lawful personal horticulture, botanical education, and genetic preservation. Check applicable state, local, municipal, and property rules before germination or cultivation. <Link href="/compliance" style={{color:'#E7C45A',fontWeight:700}}>Read the cultivation & jurisdiction notice →</Link></div>
-    <div className="jj-venture-nav" style={{borderTop:'1px solid rgba(255,255,255,.10)',padding:'1rem 1.25rem 1.15rem',textAlign:'center',fontSize:'.78rem',letterSpacing:'.045em'}}><a href="https://www.josephjilovec.com/ventures" style={{color:'#E7C45A',textDecoration:'none',fontWeight:700}}>A Joseph Jilovec Venture</a><span aria-hidden="true" style={{color:'#E7C45A',margin:'0 .65rem',opacity:.7}}>•</span><a href="https://www.josephjilovec.com/ventures" style={{color:'#E7C45A',textDecoration:'none',fontWeight:800}}>Explore the Venture Studio →</a></div>
+    
   </footer>
 }
